@@ -1,19 +1,20 @@
 ---
-title: Data Science
+title: Read data
 ---
-## Read data 
 ### csv file
 Using Pandas package  [read_csv](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html).
 
-``` python
+
+```python
 import pandas as pd
 df = pd.read_csv("data.csv", encoding = "utf-8") # check encoding type such like "utf-16"
-``` 
+ ```
 
 ### data from website
 Reading data about house price and house feature from a website as an example:
 
-``` python
+
+```python
 import requests
 from bs4 import BeautifulSoup
 
@@ -43,7 +44,9 @@ def soup_to_df(s):
 
 dfcols = ['outcode', 'latitude', 'longitude', 'post_town', 'last_published_date', 'num_bathrooms', 'num_bedrooms', 'num_floors', 
               'num_recepts', 'property_type', 'street_name', "price"]
+
 df_all = pd.DataFrame(columns=dfcols)
+
 for i in range(1, 58): #page range
 # Ctrl+Shift+I in that website to find the url for which we would like to scrape. 
     baseurl = f"https://api.zoopla.co.uk/api/v1/property_listings?api_key=9zpbeza9n858g3u2g633u3rb&county=Somerset&country=England&listing_status=sale&include_sold=1&page_number={i}&page_size=100"
