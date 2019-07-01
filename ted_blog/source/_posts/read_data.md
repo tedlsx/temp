@@ -13,12 +13,12 @@ df = pd.read_csv("data.csv", encoding = "utf-8") # check encoding type such like
 ### data from website
 Reading data about house price and house feature from a website as an example:
 
-```
+``` bash
 import requests
 from bs4 import BeautifulSoup
 
 def soup_to_df(s):
-#define column name
+    #define column name
     dfcols = ['outcode', 'last_published_date','latitude', 'longitude', 'post_town', 'num_bathrooms', 'num_bedrooms', 'num_floors', 
               'num_recepts', 'property_type', 'street_name', "price"]
     df_xml = pd.DataFrame(columns=dfcols)
