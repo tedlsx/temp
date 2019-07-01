@@ -8,6 +8,7 @@ Using Pandas package  [read_csv](https://pandas.pydata.org/pandas-docs/stable/re
 import pandas as pd
 df = pd.read_csv("data.csv", encoding = "utf-8") # check encoding type such like "utf-16"
 ``` 
+
 ### data from website
 Reading data about house price and house feature from a website as an example: 
 ``` bash
