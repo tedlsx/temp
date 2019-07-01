@@ -5,7 +5,7 @@ title: Data Science
 ### csv file
 Using Pandas package  [read_csv](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html).
 
-``` bash
+``` python
 import pandas as pd
 df = pd.read_csv("data.csv", encoding = "utf-8") # check encoding type such like "utf-16"
 ``` 
@@ -13,7 +13,7 @@ df = pd.read_csv("data.csv", encoding = "utf-8") # check encoding type such like
 ### data from website
 Reading data about house price and house feature from a website as an example:
 
-``` bash
+``` python
 import requests
 from bs4 import BeautifulSoup
 
