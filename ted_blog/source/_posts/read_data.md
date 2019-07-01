@@ -13,7 +13,7 @@ df = pd.read_csv("data.csv", encoding = "utf-8") # check encoding type such like
 ### data from website
 Reading data about house price and house feature from a website as an example:
 
-``` bash
+```
 import requests
 from bs4 import BeautifulSoup
 
