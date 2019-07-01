@@ -67,8 +67,20 @@ sklearn.feature_selection.f_classif(x, y) # same with f_regression
 F-score is good for linear relation
 
 #### Mutual infomation
+If x and y is independent, MI is 0. And if x has y relation or x is a function of y then MI is 0.
+More detail in [sklearn Mutual information](https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.mutual_info_regression.html#sklearn.feature_selection.mutual_info_regression)
 Which is good for non-linear relation
 ```python
-sklearn.feature_selection.mututal_info_regression 
-sklearn.feature_selection.mututal_info_classif
+# x is feature df, y is target df
+# For discrete_features. If ‘auto’, it is assigned to False for dense X and to True for sparse X
+# n_neighbor higher values reduce variance of the estimation
+sklearn.feature_selection.mututal_info_regression(x, y, discrete_features=’auto’, n_neighbors=3, copy=True, random_state=None)
+sklearn.feature_selection.mututal_info_classif(x, y)
+
+# output is estimated MI between each feature and target
+```
+#### Variance threshold
+Which is only care about feature itself: if it not vary a lot, then it has poor predictive power.
+```python
+sklearn.feature_selection.VarianceThreshold
 ```
