@@ -4,13 +4,15 @@ title: Data Science
 ## Read data 
 ### csv file
 Using Pandas package  [read_csv](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html).
+
 ``` bash
 import pandas as pd
 df = pd.read_csv("data.csv", encoding = "utf-8") # check encoding type such like "utf-16"
 ``` 
 
 ### data from website
-Reading data about house price and house feature from a website as an example: 
+Reading data about house price and house feature from a website as an example:
+
 ``` bash
 import requests
 from bs4 import BeautifulSoup
