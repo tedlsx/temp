@@ -63,6 +63,7 @@ sklearn.feature_selection.f_regression(x, y) # where x is feature df(n_sample * 
 For classification data
 ```python
 sklearn.feature_selection.f_classif(x, y) # same with f_regression
+sklearn.feature_selection.chi2(x, y) # if x is sparse, then only use chi2 can still keep it sparsity. 
 ```
 F-score is good for linear relation
 
@@ -84,3 +85,4 @@ Which is only care about feature itself: if it not vary a lot, then it has poor 
 ```python
 sklearn.feature_selection.VarianceThreshold
 ```
+

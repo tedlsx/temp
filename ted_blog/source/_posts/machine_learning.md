@@ -1,7 +1,6 @@
 ---
 title: Machine Learning 
 ---
-## Preprocessing
 Before we use many ML algorithm, we sometimes need to preprocess the data
 
 Import all package
@@ -11,14 +10,11 @@ import pandas as pd
 import statsmodels as sm
 
 from sklearn import preprocessing
-
-from sklearn.tree import DecisionTreeClassifier # Import Decision Tree Classifier
 from sklearn.model_selection import train_test_split # Import train_test_split function
 from sklearn import metrics #Import scikit-learn metrics module for accuracy calculation
 
-from sklearn import metrics
-from sklearn.decomposition import IncrementalPCA
 #import model package
+from sklearn.tree import DecisionTreeClassifier # Import Decision Tree Classifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
@@ -28,6 +24,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.svm import SVC
 ```
 
+## Preprocessing
 Function to encode the data type, change all object type features into dummy variables 
 ```python 
 def encoder(df):
@@ -45,6 +42,26 @@ def normalised(df):
     df_new = pd.DataFrame(x_scaled, columns= df.columns)
     return df_new
 ```
+
+Or we can use the package in scikit learn of [data transformation](https://scikit-learn.org/stable/data_transforms.html). Where fit() is to calculate properties such like mean, min, max and so on for training process.  transform() is to apply normalise, reduce dimension and regularization base on fitted data. fit_transform combined these two methods.
+```python
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+sc.fit_tranform(x_train)
+sc.tranform(x_test)
+
+from sklearn.preprocessing import MinMaxScaler
+mms = MinMaxScaler()
+mms.fit_tranform(x_train)
+mms.tranform(x_test)
+```
+```python
+from sklearn.decomposition import IncrementalPCA
+
+```
+
+
+
 Spliting the data frame into train and test to varify the goodness of model
 ```python
 # a fixed randome_state num will have same train and test set 
@@ -95,6 +112,9 @@ def random_forest_classifier(train_x, train_y):
 
 rf_model = random_forest_classifier(train_x, train_y)
 rf_model.feature_importances_  # show feature importance for each feature
+model = SelectFromModel(rf_model, prefit=True) # select no zero coefficient features
+x_new = model.transform(x)
+x_new.shape()
 
 train_x_rf = train_x.iloc[:, my_list] # can mutually define my_list = [] to select important feature
 metrics.accuracy_score(test_y, pred_y)
