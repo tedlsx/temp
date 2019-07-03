@@ -55,9 +55,12 @@ mms = MinMaxScaler()
 mms.fit_tranform(x_train)
 mms.tranform(x_test)
 ```
-```python
-from sklearn.decomposition import IncrementalPCA
 
+Using PCA as an example of reducing dimension
+```python
+from sklearn.decomposition import PCA
+pca = PCA(n_components = 3)
+pca.fit_transdorm()
 ```
 
 
